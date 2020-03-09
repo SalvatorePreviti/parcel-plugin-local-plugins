@@ -1,0 +1,26 @@
+{
+  "name": "parcel-plugin-local-plugins",
+  "version": "0.0.1",
+  "description": "Loads custom parcel plugins by configuration in package.json",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SalvatorePreviti/parcel-plugin-local-plugins.git"
+  },
+  "keywords": [
+    "parcel",
+    "parcel-bundler",
+    "parcel-plugin",
+    "local",
+    "plugins"
+  ],
+  "peerDependencies": {
+    "parcel": ">=1.0.0"
+  },
+  "author": "Salvatore Previti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SalvatorePreviti/parcel-plugin-local-plugins/issues"
+  },
+  "homepage": "https://github.com/SalvatorePreviti/parcel-plugin-local-plugins#readme"
+}
