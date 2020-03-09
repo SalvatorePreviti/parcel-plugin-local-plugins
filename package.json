@@ -1,6 +1,6 @@
 {
   "name": "parcel-plugin-local-plugins",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Loads custom parcel plugins by configuration in package.json",
   "main": "index.js",
   "repository": {

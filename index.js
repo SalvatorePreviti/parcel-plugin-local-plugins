@@ -4,11 +4,18 @@ const path = require('path')
 const fs = require('fs')
 
 module.exports = function(bundler) {
-  const packageJson = loadPackageJson()
+  const packageJsonPath = findPackageJsonPath()
+  if (!packageJsonPath) {
+    return
+  }
+
+  const packageJson = loadPackageJson(packageJsonPath)
   let customPlugins = packageJson && packageJson['parcel-plugin-local-plugins']
   if (!customPlugins) {
     return
   }
+
+  const rootDir = path.dirname(packageJsonPath)
 
   if (typeof customPlugins === 'string') {
     customPlugins = customPlugins.split(' ')
@@ -28,7 +35,7 @@ module.exports = function(bundler) {
     }
     if (typeof pluginId === 'string') {
       if (pluginId.startsWith('.') || pluginId.startsWith('/') || pluginId.startsWith('\\')) {
-        pluginId = path.resolve(pluginId)
+        pluginId = path.resolve(rootDir, pluginId)
       }
     }
     let plugin = require(pluginId)
@@ -41,11 +48,11 @@ module.exports = function(bundler) {
   }
 }
 
-function loadPackageJson() {
-  const packageJsonPath = findPackageJsonUp('.') || findPackageJsonUp(path.dirname(__dirname))
-  if (!packageJsonPath) {
-    return null
-  }
+function findPackageJsonPath() {
+  return findPackageJsonUp('.') || findPackageJsonUp(path.dirname(__dirname))
+}
+
+function loadPackageJson(packageJsonPath) {
   try {
     return require(packageJsonPath) || null
   } catch (_error) {
