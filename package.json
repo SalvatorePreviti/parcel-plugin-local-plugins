@@ -1,6 +1,6 @@
 {
   "name": "parcel-plugin-local-plugins",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Loads custom parcel plugins by configuration in package.json",
   "main": "index.js",
   "repository": {
@@ -14,9 +14,6 @@
     "local",
     "plugins"
   ],
-  "peerDependencies": {
-    "parcel": ">=1.0.0"
-  },
   "author": "Salvatore Previti",
   "license": "MIT",
   "bugs": {
